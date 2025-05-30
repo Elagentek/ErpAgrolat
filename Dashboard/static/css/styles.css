@@ -1,0 +1,16 @@
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.chart-container {
+  position: relative;
+  height: 40vh;
+  width: 80%;
+  margin: auto;
+}
