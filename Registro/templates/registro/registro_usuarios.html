@@ -1,0 +1,122 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <title>AGROLAT - Registro</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{% static 'Registro/css/styles.css' %}">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-light shadow-sm px-4">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo_agrolat.png' %}" alt="AGROALT" width="200">
+        </a>
+       <a class="btn btn-outline-primary" href="{% url 'login' %}">
+    <i class="bi bi-box-arrow-in-left"></i> Volver al login
+        </a>
+
+    </nav>
+
+    <!-- MAIN -->
+    <main>
+        
+
+       
+
+
+
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Registro de usuarios</h1>
+             {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+            <p class="text-center lead mb-5">Crear un nuevo usuario.</p>
+
+            <form action="{% url 'registro:registro' %}" method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                            <label for="nombre">Nombre</label>
+                            <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+                            <label for="usuario">Nombre de usuario</label>
+                            <div class="invalid-feedback">El usuario es obligatorio.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required>
+                    <label for="email">Correo electrónico</label>
+                    <div class="invalid-feedback">Ingresa un correo válido.</div>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required minlength="6">
+                    <label for="password">Contraseña</label>
+                    <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmar contraseña" required>
+                    <label for="password_confirmation">Confirmar contraseña</label>
+                    <div class="invalid-feedback">Confirma tu contraseña.</div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Crear usuario</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <p class="mb-0">AGROALT 2025 by Raccoon Devs. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        // Validación Bootstrap
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
