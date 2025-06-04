@@ -20,6 +20,9 @@ urlpatterns = [
     path('registro/', include(('Registro.urls', 'registro'), namespace='registro')),
     # Módulo de Dashboard
     path('dashboard/', include('Dashboard.urls')),
+
+    # Módulo de Inventario
+    path('inventario/', include('Inventario.urls')),
    
 
 

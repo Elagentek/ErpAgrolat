@@ -34,3 +34,6 @@ def consultar_usuarios(request):
         'usuarios': usuarios,
         'editar_usuario': editar_usuario
     })
+
+def inventario_view(request):
+    return render(request, 'Inventario/Inventario.html')
