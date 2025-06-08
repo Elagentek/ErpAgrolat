@@ -64,3 +64,10 @@ def eliminar_venta(request, venta_id):
     venta.delete()
     messages.success(request, "Venta eliminada correctamente.")
     return redirect('gestionar_ventas')
+
+def generar_boleta(request, venta_id):
+    venta = get_object_or_404(Venta, id=venta_id)
+    return render(request, 'Ventas/boleta.html', {
+        'venta': venta
+    })
+

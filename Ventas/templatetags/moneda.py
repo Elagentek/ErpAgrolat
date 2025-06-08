@@ -8,3 +8,7 @@ def clp(value):
         return "${:,.0f}".format(value).replace(",", ".")
     except:
         return value
+
+@register.filter
+def multiply(value, arg):
+    return value * arg
