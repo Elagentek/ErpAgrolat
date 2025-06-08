@@ -23,6 +23,12 @@ urlpatterns = [
 
     # Módulo de Inventario
     path('inventario/', include('Inventario.urls')),
+
+    # Módulo de Clientes
+    path('clientes/', include('Clientes.urls')),
+
+    # Módulo de Ventas
+    path('ventas/', include('Ventas.urls')),
    
 
 

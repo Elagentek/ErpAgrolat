@@ -47,7 +47,7 @@
   <div><i class="bi bi-calendar-event"></i> <span id="fecha-actual" class="fw-semibold"></span></div>
   <div><i class="bi bi-clock"></i> <span id="reloj" class="fw-semibold"></span></div>
 </div>
-<!-- ⬆️ -->
+
             <p class="lead">Este es tu panel de usuario en AGROALT. Explora las funcionalidades disponibles.</p>
 
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
@@ -91,7 +91,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><i class="bi bi-person-lines-fill"></i> Clientes</h5>
                             <p class="card-text">Gestiona tu lista de clientes y su información.</p>
-                            <a href="#" class="btn btn-warning">Editar perfil</a>
+                            <a href="{% url 'lista_clientes' %}" class="btn btn-primary">Ir a Gestionar Clientes</a>
+
                         </div>
                     </div>
                 </div>
@@ -102,7 +103,9 @@
                         <div class="card-body">
                             <h5 class="card-title"><i class="bi bi-person-lines-fill"></i>Caja</h5>
                             <p class="card-text">Gestiona tus Ventas</p>
-                            <a href="#" class="btn btn-warning">Ingresar al Panel de Ventas</a>
+                           <a href="{% url 'gestionar_ventas' %}" class="btn btn-warning">Ingresar al Panel de Ventas</a>
+
+
                         </div>
                     </div>
                 </div>
